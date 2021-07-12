@@ -1,0 +1,201 @@
+---
+title: "Marcin Cencek"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: fill
+    social: ["linkedin"]
+    source_code: embed
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(knitr)
+library(DT)
+library(rpivotTable)
+library(ggplot2)
+library(openintro)
+library(highcharter)
+
+
+```
+
+```{r}
+data <- read.csv("~/Desktop/R/BeerProject/data.csv")
+```
+
+
+```{r}
+
+
+```
+
+```{r}
+mycolors <- c("blue","#FFC125","darkgreen","darkorange")
+```
+
+Home
+==================
+
+Row
+------------------
+
+### Average Arrival Delays in Minutes
+
+```{r}
+valueBox(paste('Data July 2021'),
+color = 'olivedrab')
+```
+
+
+
+### Overall Average Score
+
+```{r}
+gauge(round(mean(data$rating_score),
+            digits = 2),
+            min = 0,
+            max = 5,
+            gaugeSectors(success = c(0,2),
+                         warning = c(2,4),
+                         danger = c(4,5),
+                         colors = c('red','yellow','green')))
+```
+
+
+### Total Number of Points
+```{r}
+valueBox(length(data$beer_name),
+         icon = 'glyphicon glyphicon-plane')
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Top States Based on Count of Flights of Origin
+
+```{r}
+
+          
+```
+
+
+### Top 10 Airports Based on Count of Flights of Origin
+
+
+```{r}
+
+          
+```
+
+Row
+---------------------
+
+### Distance vs Air Time
+
+```{r}
+
+```
+
+### Day of Month vs Count of Flights
+
+```{r}
+
+                   
+
+
+```
+
+Map
+=========================
+
+
+```{r}
+
+
+```
+
+
+Delays by Airport
+=========================
+```{r}
+
+
+```
+
+Departure Time Blocks
+=========================
+
+```{r}
+
+```
+
+Carriers Distance and Delays
+=========================
+
+Row
+-------------------------
+### Carriers and Distance
+
+```{r}
+
+```
+Row
+-------------------------
+
+### Carrier Arrival Delay Distribution
+
+```{r}
+
+```
+
+Summary {data-orientation=columns}
+=========================
+
+Column {data-width = 100}
+-------------------------
+
+### Longest Delay in Minutes
+```{r}
+
+```
+
+### Average Arrival Delay in Minutes
+```{r}
+
+```
+
+### Average Flight Distance in Miles
+```{r}
+
+```
+
+### Standard Deviation of Arrival Delays
+```{r}
+
+```
+
+### Maximum Flight Distance in Miles
+```{r}
+
+```
+
+### Standard Deviation of Distance
+```{r}
+
+```
+
+
+
+About Report
+=========================
+
+<b><font face="arial" size="4" color="#000000">Created by Marcin W. Cencek</font></b>
+
+<a href="mailto:marcin.cencek@gmail.com">marcin.cencek@gmail.com</a>
+
+* Fun Project
+
+
+
+
